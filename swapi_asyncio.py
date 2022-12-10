@@ -59,7 +59,7 @@ async def main():
 
             detail_res = await asyncio.gather(*detail_tasks) # выполняем преподготовленные запросы
 
-
+            # создаем новый экземпляр класса People
             new_person = People(pers_id=int(person['url'].split('/')[-2]),
                                 birth_year=person['birth_year'],
                                 eye_color=person['eye_color'],
@@ -76,7 +76,7 @@ async def main():
                                 vehicles=detail_res[4]
                                 )
 
-            session.add(new_person)
+            session.add(new_person) # добавление данных в базу
             await session.commit() # отправление данных в базу
 
 
