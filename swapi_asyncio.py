@@ -35,7 +35,7 @@ async def main():
 
     people_tasks = [asyncio.create_task(get_page(f'{SWAPI_URL}{i}')) for i in range(100)]
 
-    people = await asyncio.gather(*people_tasks)
+    people = await asyncio.gather(*people_tasks) # выполняем преподготовленный запрос
 
     for person in people:
 
